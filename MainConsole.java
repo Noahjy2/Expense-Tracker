@@ -3,9 +3,11 @@ import java.util.Scanner;
 public class MainConsole{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        ExpenseManager manager = new ExpenseManager();
+        manager.addInitailData();
 
         while (true){
-            System.out.println("========== Expense Tracker ==========");
+            System.out.println("\n========== Expense Tracker ==========");
             System.out.print("""
             1. Add Expense
             2. View All Expense
@@ -18,9 +20,9 @@ public class MainConsole{
             String choice = scanner.nextLine();
 
             switch (choice){
-                case "1" -> System.out.println("Add expense");
-                case "2" -> System.out.println("View all expense");
-                case "3" -> System.out.println("Search expense");
+                case "1" -> manager.addExpense(scanner);
+                case "2" -> manager.viewAllExpenses(scanner);
+                case "3" -> manager.searchExpense(scanner);
                 case "4" -> System.out.println("Delete summary");
                 case "5" -> System.out.println("Show summary");
                 case "6" -> System.out.println("Bye");
