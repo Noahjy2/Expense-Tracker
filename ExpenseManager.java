@@ -1,10 +1,7 @@
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.swing.text.DateFormatter;
 
 public class ExpenseManager {
     private ArrayList<Expense> expenses = new ArrayList<>();
@@ -91,7 +88,7 @@ public class ExpenseManager {
     }
 
     public void searchExpense(Scanner scanner){
-        System.out.print("Enter ID of Expense: ");
+        System.out.print("Enter Expense ID: ");
         String id = scanner.nextLine();
 
         for (Expense expense : expenses){
@@ -102,6 +99,19 @@ public class ExpenseManager {
     }
 
     //delete expense
+    public void deleteExpense(Scanner scanner){
+        System.out.print("Enter Expense ID: ");
+        String id = scanner.nextLine();
+
+        for (Expense expense : expenses){
+            if (expense.getId().equals(id)){
+                expenses.remove(expense);
+                System.out.println("Expenses Deleted.");
+                return;
+            }
+        }
+        System.out.println("Expense is Not Found!");
+    }
 
     //show Summary
 }
