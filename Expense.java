@@ -1,13 +1,27 @@
 public class Expense {
-    private int id;
+    private String id;
     private String category;
     private double amount;
     private String date;
     private String description;
 
+    Expense(String id, String category, double amount, String date, String description){
+        this.id = id;
+        this.category = category;
+        this.amount = amount;
+        this.date = date;
+        this.description = description;
+    }
+
+    @Override
+    public String toString(){
+        return "ID: " + this.id + "\nCategory: " + this.category + "\nAmount: $" + this.amount +
+         "\nDate: " + this.date + "\nDescription: " + this.description;
+    }
+    
 
     //Getter
-    public int getId(){
+    public String getId(){
         return this.id;
     }
     public String getCategory(){
@@ -25,7 +39,7 @@ public class Expense {
 
 
     //Setter
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
     public void setCategory(String category){
