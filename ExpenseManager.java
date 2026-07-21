@@ -130,6 +130,10 @@ public class ExpenseManager {
         double highest = 0;
         double lowest = 0;
         double average = 0;
+        String highestCategory = "";
+        String lowestCategory = "";
+        String highestId = "";
+        String lowestId = "";
 
         for (Expense expense : expenses){
             
@@ -137,21 +141,32 @@ public class ExpenseManager {
             total += amount; 
             if (amount > highest){
                 highest = amount;
+                highestCategory = expense.getCategory();
+                highestId = expense.getId();
             }
             if (lowest == 0 || amount < lowest){
                 lowest = amount;
+                lowestCategory = expense.getCategory();
+                lowestId = expense.getId();
             }
             count++;
         }
 
         average = total / count;
 
-        System.out.println("\n========== Expense Summary ==========");
+        System.out.println("\n============== Expense Summary ==============");
         System.out.println("Number of Expenses: " + count);
-        System.out.printf("Total Expenses : $%.2f\n", total);
-        System.out.printf("Average Expense : $%.2f\n", average);
-        System.out.printf("Highest Expense : $%.2f\n", highest);
-        System.out.printf("Lowest Expense : $%.2f\n", lowest);
-        System.out.println("=====================================");
+
+        System.out.printf("\nTotal Expenses    : $%.2f\n", total);
+        System.out.printf("Average Expense   : $%.2f\n", average);
+
+        System.out.printf("\nHighest Expense   : $%.2f\n", highest);
+        System.out.println("Category          : " + highestCategory);
+        System.out.println("ID                : " + highestId);
+
+        System.out.printf("\nLowest Expense    : $%.2f\n", lowest);
+        System.out.println("Category          : " + lowestCategory);
+        System.out.println("ID                : " + lowestId);
+        System.out.println("=============================================");
     }
 }
