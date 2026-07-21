@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class MainConsole{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        ExpenseManager manager = new ExpenseManager();        
+            
 
         while (true){
+            ExpenseManager manager = new ExpenseManager();    
             System.out.println("\n========== Expense Tracker ==========");
             System.out.print("""
             1. Add Expense

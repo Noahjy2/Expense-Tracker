@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ExpenseManager {
     private ArrayList<Expense> expenses = new ArrayList<>();
-    FileManager file = new FileManager();
+    private FileManager file = new FileManager();
 
     //initialize data
     public ExpenseManager(){
@@ -79,7 +79,7 @@ public class ExpenseManager {
 
             String id = expense.getId();
             String category = expense.getCategory();
-            Double amount = expense.getAmount();
+            double amount = expense.getAmount();
             String date = expense.getDate();
             String description = expense.getDescription();
 
@@ -87,14 +87,15 @@ public class ExpenseManager {
         }
     }
 
+
     public void searchExpense(Scanner scanner){
         System.out.print("Enter Expense ID: ");
         String id = scanner.nextLine();
 
-        for (Expense expense : expenses){
-            if (expense.getId().equals(id)){
-                System.out.println("\n" + expense.toString());
-            }
+        if (getExpense(id) != null){
+            System.out.println("\n" + getExpense(id).toString());
+        } else {
+            System.out.println("Expense Not Found!");
         }
     }
 
