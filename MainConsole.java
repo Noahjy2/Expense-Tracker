@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class MainConsole{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        ExpenseManager manager = new ExpenseManager();
-        manager.addInitailData();
+        ExpenseManager manager = new ExpenseManager();        
 
         while (true){
             System.out.println("\n========== Expense Tracker ==========");
