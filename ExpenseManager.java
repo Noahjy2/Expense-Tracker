@@ -117,5 +117,41 @@ public class ExpenseManager {
         
     }
 
-    //show Summary
+    
+    public void showSummary(){
+
+        if (expenses.isEmpty()){
+            System.out.println("No Expense Exist.");
+            return;
+        }
+
+        int count = 0;
+        double total = 0;
+        double highest = 0;
+        double lowest = 0;
+        double average = 0;
+
+        for (Expense expense : expenses){
+            
+            double amount = expense.getAmount();
+            total += amount; 
+            if (amount > highest){
+                highest = amount;
+            }
+            if (lowest == 0 || amount < lowest){
+                lowest = amount;
+            }
+            count++;
+        }
+
+        average = total / count;
+
+        System.out.println("\n========== Expense Summary ==========");
+        System.out.println("Number of Expenses: " + count);
+        System.out.printf("Total Expenses : $%.2f\n", total);
+        System.out.printf("Average Expense : $%.2f\n", average);
+        System.out.printf("Highest Expense : $%.2f\n", highest);
+        System.out.printf("Lowest Expense : $%.2f\n", lowest);
+        System.out.println("=====================================");
+    }
 }

@@ -24,7 +24,7 @@ public class MainConsole{
                 case "2" -> manager.viewAllExpenses(scanner);
                 case "3" -> manager.searchExpense(scanner);
                 case "4" -> manager.deleteExpense(scanner);
-                case "5" -> System.out.println("Show summary");
+                case "5" -> manager.showSummary();
                 case "6" -> System.out.println("Bye");
                 default -> System.out.println("Invalid choice");
             }
