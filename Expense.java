@@ -19,6 +19,13 @@ public class Expense {
          "\nDate: " + this.date + "\nDescription: " + this.description;
     }
     
+    public String toFileString(){
+        return this.getId() + "," + 
+                this.getCategory() + "," +
+                this.getAmount() + "," + 
+                this.getDate() + "," + 
+                this.getDescription() + "\n";
+    }
 
     //Getter
     public String getId(){
@@ -54,4 +61,6 @@ public class Expense {
     public void setDescription(String description){
         this.description = description;
     }
+
+    
 }

@@ -5,11 +5,15 @@ import java.util.Scanner;
 
 public class ExpenseManager {
     private ArrayList<Expense> expenses = new ArrayList<>();
+    FileManager file = new FileManager();
 
     //test data
     public void addInitailData(){
         Expense e1 = new Expense("000001", "Transportation", 250.40, "12/2/2022", "Flight from Malaysia to China");
         expenses.add(e1);
+        Expense e2 = new Expense("000002","Food",35.80,"15/2/2022","Dinner at Restaurant");
+        expenses.add(e2);
+        file.saveFile(expenses);
     }
 
 

@@ -1,0 +1,2 @@
+000001,Transportation,250.4,12/2/2022,Flight from Malaysia to China
+000002,Food,35.8,15/2/2022,Dinner at Restaurant
