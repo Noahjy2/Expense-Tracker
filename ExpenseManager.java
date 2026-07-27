@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +22,6 @@ public class ExpenseManager {
         }
         return null;
     }
-    
 
     public void addExpense(Scanner scanner){
         System.out.print("Enter ID: ");
@@ -35,23 +35,37 @@ public class ExpenseManager {
         System.out.print("Enter category: ");
         String category = scanner.nextLine();
 
-        System.out.print("Enter amount: ");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
-        
-        while (!scanner.hasNextDouble()){
-            System.out.println("Please Enter Numbers Only!");
-            System.out.print("Re-enter amount: ");
-            amount = scanner.nextDouble();
+        double amount;
+
+        while (true){
+            System.out.print("Enter amount: ");
+            String input = scanner.nextLine();
+            
+            try {
+                amount = Double.parseDouble(input);
+                break;
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Please Enter Valid Number.");
+            }
         }
 
-        System.out.print("Enter date: ");
-        String inputDate = scanner.nextLine();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate date = LocalDate.parse(inputDate, formatter);
-        String newDate = date.format(formatter);
+        String newDate;
+        while (true) {
+            System.out.print("Enter date: ");
+            String inputDate = scanner.nextLine();
 
+            try {
+                LocalDate date = LocalDate.parse(inputDate, formatter);
+                newDate = date.format(formatter);
+                break;
+            }
+            catch (DateTimeParseException e){
+                System.out.println("Invalid date format. Please use dd/MM/yyyy.");
+            }
+        }
+        
         System.out.print("Enter description: ");
         String description = scanner.nextLine();
 
